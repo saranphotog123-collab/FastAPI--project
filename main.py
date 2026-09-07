@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 app = FastAPI()
+
+students = []
 
 @app.get("/health")
 def health_check():
@@ -13,10 +16,18 @@ class Student(BaseModel):
     department: str
     email: str
 
+
 @app.post("/students")
 def create_student(student: Student):
-    student.append(student)
+    students.append(student)
     return student
+
+
 @app.get("/students")
 def list_students():
-    return list_students
+    return students
+
+
+@app.put("/students")
+def update_student(student: Student):
+    return student
