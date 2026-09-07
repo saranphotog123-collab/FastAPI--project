@@ -15,4 +15,8 @@ class Student(BaseModel):
 
 @app.post("/students")
 def create_student(student: Student):
+    student.append(student)
     return student
+@app.get("/students")
+def list_students():
+    return list_students
