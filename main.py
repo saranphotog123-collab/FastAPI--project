@@ -18,12 +18,13 @@ from services.student_service import create_student as create_student_service
 # App and Logging
 # --------------------------------------------------
 
-app = FastAPI()
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s"
+app = FastAPI(
+    title="Student Management API",
+    description="A FastAPI backend for student management with authentication, authorization, search, filtering, and database integration.",
+    version="1.0.0"
 )
+
+
 
 logger = logging.getLogger(__name__)
 
